@@ -9,9 +9,9 @@ import "./App.css";
 import apiKey from "./config";
 
 // Components that need to be imported into project
-import SearchInput from "./components/SearchInput";
-import Nav from "./components/Nav";
-import Gallery from "./components/Gallery";
+import SearchInput from "./Components/SearchInput";
+import Nav from "./Components/Nav";
+import Gallery from "./Components/Gallery";
 
 // Limits the amount of images loaded per page can be setup as a feature late on
 const resultsPerPage = 24;
