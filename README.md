@@ -1,4 +1,4 @@
-# Unit Project 7 Team Treehouse - FSJ
+# Unit Project 7 Team TreeHouse - FSJ
 
 ### This is a gallery app built on React.
 

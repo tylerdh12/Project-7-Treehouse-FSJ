@@ -6,14 +6,14 @@ import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import "./App.css";
 
 // Please use your own .config.js file to use this application
-import { apiKey } from "./config";
+import apiKey from "./config";
 
 // Components that need to be imported into project
 import SearchInput from "./components/SearchInput";
 import Nav from "./components/Nav";
 import Gallery from "./components/Gallery";
 
-// Limits the ammount of images loaded per page can be setup as a feature late on
+// Limits the amount of images loaded per page can be setup as a feature late on
 const resultsPerPage = 24;
 
 class App extends Component {
