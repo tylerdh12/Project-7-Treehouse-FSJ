@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
 const Photo = props => {
-    const url = `https://farm${props.farm}.staticflickr.com/${props.server}/${props.id}_${props.secret}.jpg`;
-    return(
-        <li>
-            <img src={url} alt={props.title} />
-        </li>
-    );
+  const url = `https://farm${props.farm}.staticflickr.com/${props.server}/${props.id}_${props.secret}.jpg`;
+  return (
+    <li>
+      <img src={url} alt={props.title} />
+    </li>
+  );
 };
 
 export default Photo;

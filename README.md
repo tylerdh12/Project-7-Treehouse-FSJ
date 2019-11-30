@@ -1,6 +1,6 @@
 # Unit Project 7 Team Treehouse - FSJ
 
-### This is a gallery app built on React. 
+### This is a gallery app built on React.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
