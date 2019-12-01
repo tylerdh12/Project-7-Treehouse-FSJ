@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 // import axios from 'axios';
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from "react-router-dom";
 
 // CSS File applied for styling project
 import "./App.css";
@@ -12,6 +17,7 @@ import apiKey from "./config";
 import SearchInput from "./Components/SearchInput";
 import Nav from "./Components/Nav";
 import Gallery from "./Components/Gallery";
+import FourOhFour from "./Components/FourOhFour";
 
 // Limits the amount of images loaded per page can be setup as a feature late on
 const resultsPerPage = 24;
@@ -23,7 +29,7 @@ class App extends Component {
     this.state = {
       query: "aurora borealis",
       photos: [],
-      isLoading: true
+      loading: true
     };
   }
 
@@ -57,6 +63,9 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
+          <Route exact path="/">
+            <Redirect to="search/aurora%20borealis" />
+          </Route>
           <Route
             path="/"
             render={props => (
@@ -64,20 +73,21 @@ class App extends Component {
             )}
           />
           <Nav onSearch={this.performSearch} />
-          <Route exact path="/">
-            <Redirect to="search/aurora%20borealis" />
-          </Route>
-          <Route
-            path="/search/:query"
-            render={props => (
-              <Gallery
-                {...props}
-                onSearch={this.performSearch}
-                photos={this.state.photos}
-                isLoading={this.state.isLoading}
-              />
-            )}
-          />
+          <Switch>
+            <Route
+              exact
+              path="/search/:query"
+              render={props => (
+                <Gallery
+                  {...props}
+                  onSearch={this.performSearch}
+                  photos={this.state.photos}
+                  loading={this.state.loading}
+                />
+              )}
+            />
+            <Route component={FourOhFour} />
+          </Switch>
         </div>
       </Router>
     );

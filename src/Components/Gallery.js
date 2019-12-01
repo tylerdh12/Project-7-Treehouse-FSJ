@@ -10,18 +10,22 @@ const Gallery = props => {
   let photos;
 
   if (results.length > 0) {
-    photos = results.map(photo => {
-      return (
-        <Photo
-          key={photo.id}
-          id={photo.id}
-          farm={photo.farm}
-          secret={photo.secret}
-          server={photo.server}
-          alt={photo.title}
-        />
-      );
-    });
+    if (props.loading === true) {
+      return <h2>Loading...</h2>;
+    } else if (props.loading === false) {
+      photos = results.map(photo => {
+        return (
+          <Photo
+            key={photo.id}
+            id={photo.id}
+            farm={photo.farm}
+            secret={photo.secret}
+            server={photo.server}
+            alt={photo.title}
+          />
+        );
+      });
+    }
   } else if (results.length === 0) {
     photos = <NotFound />;
   }

@@ -6,22 +6,26 @@ const Nav = props => {
     props.onSearch(e.target.innerText);
   };
 
+  let homeSearch = e => {
+    props.onSearch("aurora borealis");
+  };
+
   return (
     <nav className="main-nav">
       <ul>
         <li>
-          <NavLink exact to={"/"} onClick={searchText}>
+          <NavLink exact to={"/"} onClick={homeSearch}>
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to={"/search/tree"} onClick={searchText}>
-            Tree
+          <NavLink to={"/search/forrest"} onClick={searchText}>
+            Forrest
           </NavLink>
         </li>
         <li>
-          <NavLink to={"/search/jungle"} onClick={searchText}>
-            Jungle
+          <NavLink to={"/search/waterfall"} onClick={searchText}>
+            Waterfall
           </NavLink>
         </li>
         <li>
