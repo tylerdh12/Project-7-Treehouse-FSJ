@@ -18,6 +18,7 @@ import SearchInput from "./Components/SearchInput";
 import Nav from "./Components/Nav";
 import Gallery from "./Components/Gallery";
 import FourOhFour from "./Components/FourOhFour";
+// import Loading from "./Components/Loading";
 
 // Limits the amount of images loaded per page can be setup as a feature late on
 const resultsPerPage = 24;
@@ -35,7 +36,13 @@ class App extends Component {
 
   // This runs the initial load of the content as soon at the application loads
   componentDidMount() {
-    this.performSearch(this.state.query);
+    // if the user is at the root path then re-render the root content
+    if (window.location.pathname === "/search/aurora%20borealis") {
+      this.performSearch("aurora borealis");
+    } else {
+      // else take the window location remove the search path from string and search for the current path
+      this.performSearch(window.location.pathname.substring(8));
+    }
   }
 
   // This runs the data request to the flickr API and returns the content
@@ -64,20 +71,25 @@ class App extends Component {
       <Router>
         <div className="container">
           <Route exact path="/">
+            {/* Redirect the root to the search/aurora borealis directory to render */}
             <Redirect to="search/aurora%20borealis" />
           </Route>
           <Route
             path="/"
             render={props => (
+              // render search input for all pages
               <SearchInput {...props} onSearch={this.performSearch} />
             )}
           />
+          {/* render the navigation buttons */}
           <Nav onSearch={this.performSearch} />
           <Switch>
+            {/* Using switch here because of multi component index page */}
             <Route
               exact
               path="/search/:query"
               render={props => (
+                // Render the gallery with props passed
                 <Gallery
                   {...props}
                   onSearch={this.performSearch}
@@ -86,6 +98,7 @@ class App extends Component {
                 />
               )}
             />
+            {/* Catch for 404 page */}
             <Route component={FourOhFour} />
           </Switch>
         </div>

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const FourOhFour = ({ location }) => {
   return (
     <div className="container">
-      <h1>404</h1>
+      <h1>404 Error</h1>
       <h3>
         "<code>{location.pathname}</code>" Is not available.
       </h3>

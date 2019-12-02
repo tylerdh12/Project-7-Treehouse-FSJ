@@ -10,8 +10,10 @@ const Gallery = props => {
   let photos;
 
   if (results.length > 0) {
+    // Loading content with if statements
     if (props.loading === true) {
       return <h2>Loading...</h2>;
+      // Once the content is loaded then send to photos component to generate photo element
     } else if (props.loading === false) {
       photos = results.map(photo => {
         return (
@@ -26,6 +28,7 @@ const Gallery = props => {
         );
       });
     }
+    // If nothing is found then display not found component
   } else if (results.length === 0) {
     photos = <NotFound />;
   }
