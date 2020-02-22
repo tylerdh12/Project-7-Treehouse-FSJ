@@ -10,15 +10,15 @@ import {
 // CSS File applied for styling project
 import "./App.css";
 
-// Please use your own .config.js file to use this application
-import apiKey from "./config";
-
 // Components that need to be imported into project
 import SearchInput from "./Components/SearchInput";
 import Nav from "./Components/Nav";
 import Gallery from "./Components/Gallery";
 import FourOhFour from "./Components/FourOhFour";
 // import Loading from "./Components/Loading";
+
+// Uses Environment variable to provide apiKey
+const apiKey = process.env.apiKey;
 
 // Limits the amount of images loaded per page can be setup as a feature late on
 const resultsPerPage = 24;
