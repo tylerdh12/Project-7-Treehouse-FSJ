@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 // import axios from 'axios';
 import {
   BrowserRouter as Router,
@@ -17,8 +18,10 @@ import Gallery from "./Components/Gallery";
 import FourOhFour from "./Components/FourOhFour";
 // import Loading from "./Components/Loading";
 
+// Require dotenv to pull apiKey
+
 // Uses Environment variable to provide apiKey
-const apiKey = process.env.apiKey;
+const apiKey = "29fa533661f763e119c67883564ee262";
 
 // Limits the amount of images loaded per page can be setup as a feature late on
 const resultsPerPage = 24;

@@ -1,0 +1,4 @@
+#ignore the imgs for docs
+/img/
+node_modules
+npm-debug.log
